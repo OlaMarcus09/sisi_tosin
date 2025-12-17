@@ -1,50 +1,55 @@
 import Image from "next/image"
 import { ProductModal } from "@/components/brand/ProductModal"
+import { ChristmasBanner } from "@/components/brand/ChristmasBanner"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Instagram, Video, ArrowRight } from "lucide-react"
+import { Instagram, Video, ArrowRight, Star, Mail, Clapperboard, Camera } from "lucide-react"
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white font-sans text-black">
       
-      {/* 1. HERO SECTION - Mobile Optimized */}
+      {/* --- CHRISTMAS THEME START (Remove this line in Jan) --- */}
+      <ChristmasBanner />
+      {/* --- CHRISTMAS THEME END --- */}
+
+      {/* 1. HERO SECTION - Holiday Glamour */}
       <section className="relative h-[90vh] w-full bg-black overflow-hidden">
-        {/* Background Image - Optimized with 'priority' for speed */}
         <div className="absolute inset-0 opacity-70">
            <Image 
             src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=2864&auto=format&fit=crop" 
             alt="Sisi Tosin Model" 
             fill
             className="object-cover"
-            priority={true} // Loads this image immediately
+            priority={true} 
            />
+           {/* Subtle Christmas Overlay (Optional) */}
+           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
         </div>
         
-        <div className="relative z-10 flex flex-col justify-end h-full pb-20 px-6 md:px-20 max-w-4xl">
+        <div className="relative z-10 flex flex-col justify-end h-full pb-20 px-6 md:px-20 max-w-5xl">
           <div className="flex gap-2 mb-4">
             <Badge className="bg-rose-600 text-white border-none px-3 py-1">Actor</Badge>
-            <Badge className="bg-white text-black border-none px-3 py-1">Lifestyle</Badge>
+            <Badge className="bg-emerald-600 text-white border-none px-3 py-1">🎄 Holiday Edit</Badge>
           </div>
-          {/* Responsive Text: Smaller on mobile, huge on desktop */}
           <h1 className="text-5xl md:text-8xl font-serif font-bold text-white mb-4 leading-none tracking-tight">
-            Sisi <span className="text-rose-500">Tosin.</span>
+            The Star of <br/> <span className="text-rose-500 italic">The Season.</span>
           </h1>
           <p className="text-gray-300 text-lg md:text-xl max-w-lg mb-8 leading-relaxed">
-            Beauty is pain, but style is eternal. Explore the curated collection and exclusive content.
+            From the movie screen to your wardrobe. Explore Sisi Tosin's exclusive holiday styles and latest brand features.
           </p>
           <div className="flex flex-col md:flex-row gap-4">
-            <Button size="lg" className="bg-white text-black hover:bg-gray-200 rounded-full w-full md:w-auto text-lg h-12">
-              Shop Collections
+            <Button size="lg" className="bg-white text-black hover:bg-gray-200 rounded-full w-full md:w-auto text-lg h-12 font-bold">
+              Shop Holiday Looks
             </Button>
             <Button size="lg" variant="outline" className="text-white border-white bg-transparent hover:bg-white/10 rounded-full w-full md:w-auto h-12">
-              <Instagram className="mr-2 h-4 w-4" /> @officialsisitosin
+              <Clapperboard className="mr-2 h-4 w-4" /> View Acting Reel
             </Button>
           </div>
         </div>
       </section>
 
-      {/* 2. STATS BAR - Horizontal Scroll on Mobile */}
+      {/* 2. STATS BAR */}
       <section className="bg-rose-50 py-8 border-b border-rose-100">
         <div className="container mx-auto flex flex-row justify-around items-center text-center">
             <div>
@@ -64,31 +69,79 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. SHOP SECTION */}
-      <section className="py-16 px-6 md:px-20">
+      {/* 3. NEW: THE BRAND PORTFOLIO (Influencer/Actor Showcase) */}
+      <section className="py-20 px-6 md:px-20 bg-white">
+        <div className="text-center mb-16">
+            <Badge className="bg-black text-white mb-4">Portfolio</Badge>
+            <h2 className="text-3xl md:text-5xl font-serif font-bold mb-4">Beyond the Feed</h2>
+            <p className="text-gray-500 max-w-2xl mx-auto">
+                Sisi Tosin is more than an influencer. She is a professional actress, event host, and brand ambassador connecting products to millions.
+            </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Card 1: Acting */}
+            <div className="bg-zinc-50 p-8 rounded-2xl border border-zinc-100 hover:shadow-lg transition-shadow">
+                <Clapperboard className="h-10 w-10 text-rose-600 mb-4" />
+                <h3 className="text-2xl font-bold mb-2">Film & TV</h3>
+                <p className="text-gray-500 mb-6">Featured in Nollywood productions and web series. Bringing characters to life with depth and charisma.</p>
+                <div className="aspect-video bg-zinc-200 rounded-lg overflow-hidden relative">
+                    <Image src="https://images.unsplash.com/photo-1485846234645-a62644f84728?q=80&w=2059&auto=format&fit=crop" alt="Acting Reel" fill className="object-cover" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+                        <Video className="text-white h-12 w-12" />
+                    </div>
+                </div>
+            </div>
+
+            {/* Card 2: Brand Influencing */}
+            <div className="bg-zinc-50 p-8 rounded-2xl border border-zinc-100 hover:shadow-lg transition-shadow">
+                <Star className="h-10 w-10 text-yellow-500 mb-4" />
+                <h3 className="text-2xl font-bold mb-2">Brand Deals</h3>
+                <p className="text-gray-500 mb-6">Trusted by top beauty and lifestyle brands to drive engagement and sales through authentic storytelling.</p>
+                {/* Brand Logos Placeholder */}
+                <div className="grid grid-cols-3 gap-4 opacity-60">
+                     <div className="h-10 bg-zinc-300 rounded"></div>
+                     <div className="h-10 bg-zinc-300 rounded"></div>
+                     <div className="h-10 bg-zinc-300 rounded"></div>
+                </div>
+            </div>
+
+             {/* Card 3: Content Creation */}
+             <div className="bg-zinc-50 p-8 rounded-2xl border border-zinc-100 hover:shadow-lg transition-shadow">
+                <Camera className="h-10 w-10 text-rose-600 mb-4" />
+                <h3 className="text-2xl font-bold mb-2">Content Creation</h3>
+                <p className="text-gray-500 mb-6">High-quality skits, beauty transitions, and lifestyle vlogs that go viral. 7.4M+ views on top content.</p>
+                 <Button variant="outline" className="w-full">View Media Kit</Button>
+            </div>
+        </div>
+      </section>
+
+      {/* 4. SHOP SECTION (Christmas Theme) */}
+      <section className="py-16 px-6 md:px-20 bg-rose-50/50">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-4">
           <div>
-             <h2 className="text-3xl md:text-4xl font-serif font-bold mb-2">The Collection</h2>
-             <p className="text-gray-500">Custom wears designed for the spotlight.</p>
+             <div className="flex items-center gap-2 mb-2">
+                <h2 className="text-3xl md:text-4xl font-serif font-bold">Gifts & Glamour</h2>
+             </div>
+             <p className="text-gray-500">Curated looks perfect for the festive season.</p>
           </div>
           <Button variant="link" className="text-rose-600 font-bold p-0 md:p-4">See All Products <ArrowRight className="ml-2 h-4 w-4"/></Button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {/* Product 1 */}
           <div className="group">
              <ProductModal 
-                title="The Red Carpet Gown" 
+                title="The Christmas Gala Gown" 
                 price="₦65,000" 
                 image="https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=2548&auto=format&fit=crop" 
              />
              <div className="mt-4">
-                 <h3 className="font-bold text-xl">The Red Carpet Gown</h3>
-                 <p className="text-sm text-gray-500">Custom Fit Available</p>
+                 <h3 className="font-bold text-xl">The Gala Gown</h3>
+                 <Badge className="bg-emerald-600 ml-2 hover:bg-emerald-700">Festive</Badge>
+                 <p className="text-sm text-gray-500 mt-1">Custom Fit Available</p>
              </div>
           </div>
 
-          {/* Product 2 */}
           <div className="group">
              <ProductModal 
                 title="Sisi's Everyday Two-Piece" 
@@ -97,11 +150,10 @@ export default function Home() {
              />
              <div className="mt-4">
                  <h3 className="font-bold text-xl">Everyday Two-Piece</h3>
-                 <p className="text-sm text-gray-500">Ready to Wear</p>
+                 <p className="text-sm text-gray-500 mt-1">Ready to Wear</p>
              </div>
           </div>
 
-          {/* Product 3 */}
           <div className="group">
              <ProductModal 
                 title="Luxury Oud Perfume" 
@@ -110,50 +162,36 @@ export default function Home() {
              />
              <div className="mt-4">
                  <h3 className="font-bold text-xl">Luxury Oud</h3>
-                 <p className="text-sm text-gray-500">Signature Scent</p>
+                 <Badge className="bg-rose-600 ml-2 hover:bg-rose-700">Perfect Gift</Badge>
+                 <p className="text-sm text-gray-500 mt-1">Signature Scent</p>
              </div>
           </div>
         </div>
       </section>
 
-      {/* 4. CONTENT CREATOR HUB */}
-      <section className="bg-black text-white py-16 px-6 md:px-20">
-         <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-                <Badge className="bg-yellow-500 text-black mb-4 hover:bg-yellow-400">Trending Now</Badge>
-                <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6">"Beauty is Pain" <br/> & Other Stories</h2>
-                <p className="text-gray-400 mb-8 text-lg">
-                    Catch up on the latest skits, behind-the-scenes content, and life updates from Sisi Tosin.
-                </p>
-                <Button className="bg-white text-black hover:bg-gray-200 rounded-full w-full md:w-auto px-8 py-6 text-lg font-bold">
-                    <Video className="mr-2 h-5 w-5" /> Watch on TikTok
-                </Button>
-            </div>
-            
-            {/* Mobile Optimized Grid for Images */}
-            <div className="grid grid-cols-2 gap-4">
-                <div className="aspect-[9/16] bg-gray-800 rounded-xl overflow-hidden md:translate-y-8 relative">
-                     <Image 
-                        src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1974&auto=format&fit=crop" 
-                        alt="TikTok Content"
-                        fill
-                        className="object-cover opacity-60 hover:opacity-100 transition-opacity"
-                     />
-                </div>
-                <div className="aspect-[9/16] bg-gray-800 rounded-xl overflow-hidden relative">
-                     <Image 
-                        src="https://images.unsplash.com/photo-1611162616475-46b635cb6868?q=80&w=1974&auto=format&fit=crop" 
-                        alt="TikTok Content"
-                        fill
-                        className="object-cover opacity-60 hover:opacity-100 transition-opacity"
-                     />
-                </div>
-            </div>
-         </div>
+      {/* 5. WORK WITH ME (Call to Action) */}
+      <section className="bg-black text-white py-20 px-6 md:px-20 text-center">
+        <h2 className="text-3xl md:text-5xl font-serif font-bold mb-6">Want to work with Sisi Tosin?</h2>
+        <p className="text-gray-400 max-w-2xl mx-auto mb-8 text-lg">
+            For brand collaborations, movie roles, and event appearances, please reach out to the management team.
+        </p>
+        <div className="flex flex-col md:flex-row justify-center gap-4">
+            <Button size="lg" className="bg-rose-600 hover:bg-rose-700 text-white font-bold h-14 px-8 text-lg">
+                <Mail className="mr-2 h-5 w-5" /> Send Inquiry
+            </Button>
+            <Button size="lg" variant="outline" className="text-white border-zinc-700 hover:bg-zinc-800 h-14 px-8 text-lg">
+                Download Media Kit
+            </Button>
+        </div>
       </section>
 
       <footer className="bg-white py-10 border-t border-gray-100 text-center">
         <p className="text-gray-900 font-serif text-xl font-bold mb-2">Sisi Tosin</p>
+        <div className="flex justify-center gap-6 text-gray-400 mb-6">
+            <a href="#" className="hover:text-rose-600">Instagram</a>
+            <a href="#" className="hover:text-rose-600">TikTok</a>
+            <a href="#" className="hover:text-rose-600">WhatsApp</a>
+        </div>
         <p className="text-gray-400 text-sm">© 2025 Sisi Tosin Brand.</p>
       </footer>
     </main>
