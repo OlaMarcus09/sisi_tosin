@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss"
 
 const config = {
-  darkMode: ["class"],
+  darkMode: "class",
   content: [
     './pages/**/*.{ts,tsx}',
     './components/**/*.{ts,tsx}',
@@ -19,7 +19,7 @@ const config = {
     },
     extend: {
       fontFamily: {
-        serif: ["var(--font-playfair)", "serif"], // We will add a fancy font later
+        serif: ["var(--font-playfair)", "serif"],
         sans: ["var(--font-inter)", "sans-serif"],
       },
       colors: {
@@ -29,7 +29,7 @@ const config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#E11D48", // Sisi Tosin Red/Pink
+          DEFAULT: "#E11D48", 
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
